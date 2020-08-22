@@ -162,7 +162,7 @@ module.exports = function (program, conf) {
 
       /* Implementing statistical Exit */
       function printTrade (quit, dump, statsonly = false) {
-        var tmp_balance = n(s.balance.deposit? s.balance.deposit:s.balance.currency).add(n(s.period.close).multiply(s.balance.asset)).format('0.00000000')
+        var tmp_balance = n(s.balance.deposit && s.balance.deposit>0? s.balance.deposit:s.balance.currency).add(n(s.period.close).multiply(s.balance.asset)).format('0.00000000')
         if (quit) {
           if (s.my_trades.length) {
             s.my_trades.push({
